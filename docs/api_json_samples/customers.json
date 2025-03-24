@@ -1,0 +1,252 @@
+{
+	"data": [
+		{
+			"id": "3",
+			"type": "customer",
+			"attributes": {
+				"last_name": "Corletti",
+				"first_name": "Anthony",
+				"email": "acorletti84@example.com",
+				"phone": "412-268-2323",
+				"orders": [
+					{
+						"data": {
+							"id": "6",
+							"type": "order",
+							"attributes": {
+								"date": "2025-03-22",
+								"number_of_items": 3,
+								"grand_total": "$16.50",
+								"address": {
+									"data": {
+										"id": "3",
+										"type": "address",
+										"attributes": {
+											"recipient": "Anthony Corletti",
+											"street_1": "5000 Forbes Avenue",
+											"street_2": null,
+											"city": "Pittsburgh",
+											"state": "PA",
+											"zip": "15213"
+										}
+									}
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "1",
+			"type": "customer",
+			"attributes": {
+				"last_name": "Egan",
+				"first_name": "Alex",
+				"email": "alex.egan@example.com",
+				"phone": "412-268-8211",
+				"orders": [
+					{
+						"data": {
+							"id": "1",
+							"type": "order",
+							"attributes": {
+								"date": "2025-02-14",
+								"number_of_items": 1,
+								"grand_total": "$7.25",
+								"address": {
+									"data": {
+										"id": "5",
+										"type": "address",
+										"attributes": {
+											"recipient": "Jeff Egan",
+											"street_1": "4000 Forbes Ave",
+											"street_2": null,
+											"city": "Pittsburgh",
+											"state": "PA",
+											"zip": "15212"
+										}
+									}
+								}
+							}
+						}
+					},
+					{
+						"data": {
+							"id": "2",
+							"type": "order",
+							"attributes": {
+								"date": "2025-02-17",
+								"number_of_items": 1,
+								"grand_total": "$7.25",
+								"address": {
+									"data": {
+										"id": "5",
+										"type": "address",
+										"attributes": {
+											"recipient": "Jeff Egan",
+											"street_1": "4000 Forbes Ave",
+											"street_2": null,
+											"city": "Pittsburgh",
+											"state": "PA",
+											"zip": "15212"
+										}
+									}
+								}
+							}
+						}
+					},
+					{
+						"data": {
+							"id": "3",
+							"type": "order",
+							"attributes": {
+								"date": "2025-02-11",
+								"number_of_items": 7,
+								"grand_total": "$40.50",
+								"address": {
+									"data": {
+										"id": "1",
+										"type": "address",
+										"attributes": {
+											"recipient": "Alex Egan",
+											"street_1": "5000 Forbes Avenue",
+											"street_2": null,
+											"city": "Pittsburgh",
+											"state": "PA",
+											"zip": "15213"
+										}
+									}
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "4",
+			"type": "customer",
+			"attributes": {
+				"last_name": "Flood",
+				"first_name": "Ryan",
+				"email": "rflood87@example.com",
+				"phone": "365-581-5987",
+				"orders": [
+					{
+						"data": {
+							"id": "7",
+							"type": "order",
+							"attributes": {
+								"date": "2025-03-22",
+								"number_of_items": 2,
+								"grand_total": "$11.00",
+								"address": {
+									"data": {
+										"id": "4",
+										"type": "address",
+										"attributes": {
+											"recipient": "Ryan Flood",
+											"street_1": "5000 Forbes Avenue",
+											"street_2": null,
+											"city": "Pittsburgh",
+											"state": "PA",
+											"zip": "15213"
+										}
+									}
+								}
+							}
+						}
+					},
+					{
+						"data": {
+							"id": "8",
+							"type": "order",
+							"attributes": {
+								"date": "2025-03-22",
+								"number_of_items": 21,
+								"grand_total": "$137.55",
+								"address": {
+									"data": {
+										"id": "4",
+										"type": "address",
+										"attributes": {
+											"recipient": "Ryan Flood",
+											"street_1": "5000 Forbes Avenue",
+											"street_2": null,
+											"city": "Pittsburgh",
+											"state": "PA",
+											"zip": "15213"
+										}
+									}
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "2",
+			"type": "customer",
+			"attributes": {
+				"last_name": "Freeman",
+				"first_name": "Melanie",
+				"email": "mfreeman37@example.com",
+				"phone": "403-702-8639",
+				"orders": [
+					{
+						"data": {
+							"id": "4",
+							"type": "order",
+							"attributes": {
+								"date": "2025-03-22",
+								"number_of_items": 1,
+								"grand_total": "$5.50",
+								"address": {
+									"data": {
+										"id": "2",
+										"type": "address",
+										"attributes": {
+											"recipient": "Melanie Freeman",
+											"street_1": "5000 Forbes Avenue",
+											"street_2": null,
+											"city": "Pittsburgh",
+											"state": "PA",
+											"zip": "15213"
+										}
+									}
+								}
+							}
+						}
+					},
+					{
+						"data": {
+							"id": "5",
+							"type": "order",
+							"attributes": {
+								"date": "2025-03-22",
+								"number_of_items": 1,
+								"grand_total": "$5.50",
+								"address": {
+									"data": {
+										"id": "2",
+										"type": "address",
+										"attributes": {
+											"recipient": "Melanie Freeman",
+											"street_1": "5000 Forbes Avenue",
+											"street_2": null,
+											"city": "Pittsburgh",
+											"state": "PA",
+											"zip": "15213"
+										}
+									}
+								}
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,8 @@
+<li class="address">
+      <%= address.recipient %><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;<%= address.street_1 %><br />
+      <% unless address.street_2.blank? %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= address.street_2 %><br />
+      <% end %>
+      &nbsp;&nbsp;&nbsp;&nbsp;<%= address.city %>, <%= address.state %> <%= address.zip %>
+</li>

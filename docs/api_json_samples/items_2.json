@@ -1,0 +1,26 @@
+{
+	"data": {
+		"id": "2",
+		"type": "item",
+		"attributes": {
+			"name": "Cinnamon Swirl Bread",
+			"description": "Your family will be impressed with the soft texture and appealing swirls of cinnamon in these lovely breakfast loaves.",
+			"category": "breads",
+			"units_per_item": 1,
+			"weight": 1,
+			"current_price": "$5.50",
+			"orders_past_7_days": [
+				{
+					"date": "2025-03-22",
+					"customer": "Freeman, Melanie",
+					"quantity": 1
+				},
+				{
+					"date": "2025-03-22",
+					"customer": "Freeman, Melanie",
+					"quantity": 1
+				}
+			]
+		}
+	}
+}
