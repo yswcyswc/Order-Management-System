@@ -1,0 +1,2 @@
+class BakingListController < ApplicationController
+end

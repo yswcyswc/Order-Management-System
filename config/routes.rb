@@ -2,8 +2,15 @@ Rails.application.routes.draw do
   # API routing
   scope module: 'api', defaults: {format: 'json'} do
     namespace :v1 do
+      # resources :customers, only: [:index, :show]
+      get 'customers', to: 'customers#index'
+      get 'customers/:id', to: 'customers#show'
+      get 'unshipped', to: 'unshipped#index'
+      # resources :baking_list
+      get 'baking_list', to: 'baking_list#index'
       # Routes for API assigment
-
+      get 'items/:id/prices', to: 'item_prices#show'
+      get 'items/:id', to: 'items#show'
 
 
     end

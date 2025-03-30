@@ -5,7 +5,8 @@ ruby '3.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '7.0.4'
-
+gem "concurrent-ruby", "< 1.3.5"
+gem 'jsonapi-serializer'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
