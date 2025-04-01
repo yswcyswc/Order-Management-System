@@ -2,9 +2,13 @@ module Api::V1
   class BakingListController < ApiController
     def index
       items = Item.where(active: true)
-      baking_list = items.each_with_object({}) do |item, hash|
+      baking_list = {}
+
+      items.each do |item|
         quantity = OrderItem.where(item_id: item.id).sum(:quantity)
-        hash[item.name] = quantity if quantity > 0
+        if quantity > 0
+          baking_list[item.name] = quantity
+        end
       end
 
       render json: baking_list

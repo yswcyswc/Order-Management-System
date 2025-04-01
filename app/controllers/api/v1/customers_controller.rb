@@ -1,13 +1,19 @@
 module Api::V1
-  class CustomersController < ApiController
+  class CustomersController < ApplicationController
+    before_action :set_customer, only: [:show]
+
     def index
-      customers = Customer.includes(orders: { address: {} }).all
-      render json: CustomerSerializer.new(customers).serializable_hash, status: :ok
+      render json: CustomerSerializer.new(Customer.all)
     end
 
     def show
-      customer = Customer.includes(orders: { address: {} }).find(params[:id])
-      render json: CustomerSerializer.new(customer).serializable_hash, status: :ok
+      render json: CustomerSerializer.new(@customer)
+    end
+
+    private
+
+    def set_customer
+      @customer = Customer.find(params[:id])
     end
   end
 end
