@@ -13,8 +13,8 @@ module Api::V1
       item.item_prices.map do |price|
         {
           start_date: price.start_date.to_s,
-          end_date: price.end_date.to_s,
-          price: "$#{'%.2f' % price.price}"
+          end_date: price.end_date ? price.end_date.to_s : nil,
+          price: "$#{price.price}"
         }
       end
     end
