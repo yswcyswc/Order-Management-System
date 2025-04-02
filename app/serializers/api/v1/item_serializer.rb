@@ -2,7 +2,7 @@ module Api::V1
   class ItemSerializer
     include FastJsonapi::ObjectSerializer
 
-    attributes :id, :name, :description, :category, :units_per_item, :weight
+    attributes :name, :description, :category, :units_per_item, :weight
 
     attribute :current_price do |item|
       item.current_price.to_s

@@ -1,7 +1,7 @@
 module Api::V1
   class CustomerSerializer
     include FastJsonapi::ObjectSerializer
-    attributes :id, :first_name, :last_name, :email, :phone
+    attributes :first_name, :last_name, :email, :phone
 
     attribute :orders do |customer|
       customer.orders.map do |order|
