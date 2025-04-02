@@ -1,20 +1,15 @@
+# require 'Baking' # not working
+
 module Api
   module V1
     class OrdersController < ApiController
+      # include Baking
       def baking_list
-        items = Item.where(active: true)
-        baking_list = {}
-
-        items.each do |item|
-          quantity = OrderItem.where(item_id: item.id).sum(:quantity)
-          baking_list[item.name] = quantity if quantity.positive?
-        end
-
-        render json: baking_list
+        render json: Baking.create_baking_list_for_all
       end
 
       def unshipped
-        unshipped_items = OrderItem.where(shipped_on: nil)
+        unshipped_items = OrderItem.unshipped.alphabetical
         render json: UnshippedOrderItemSerializer.new(unshipped_items)
       end
     end

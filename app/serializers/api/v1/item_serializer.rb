@@ -5,7 +5,7 @@ module Api::V1
     attributes :name, :description, :category, :units_per_item, :weight
 
     attribute :current_price do |item|
-      item.current_price.to_s
+      ActionController::Base.helpers.number_to_currency(item.current_price)
     end
 
     attribute :orders_past_7_days do |item|
