@@ -12,9 +12,9 @@ module Api::V1
     attribute :prices do |item|
       item.item_prices.map do |price|
         {
-          start_date: price.start_date.to_s,
-          end_date: price.end_date ? price.end_date.to_s : nil,
-          price: "$#{price.price}"
+          start_date: price.start_date,
+          end_date: price.end_date ? price.end_date : nil,
+          price: ActionController::Base.helpers.number_to_currency(price.price)
         }
       end
     end

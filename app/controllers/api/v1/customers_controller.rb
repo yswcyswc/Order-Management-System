@@ -2,7 +2,7 @@ module Api::V1
   class CustomersController < ApplicationController
     include Actionable
     include Filterable
-    filtering_params = %w[active alphabetical]
+    # filtering_params = %w[active alphabetical]
     before_action :set_customer, only: [:show]
 
     def index
@@ -13,9 +13,6 @@ module Api::V1
       if params[:alphabetical].present? && params[:alphabetical] == "true"
         @customer = @customer.alphabetical
       end
-
-      # @customer = Customer.all
-      # @customer
       render json: CustomerSerializer.new(@customer)
     end
 
