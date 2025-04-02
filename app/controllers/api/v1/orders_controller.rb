@@ -1,5 +1,3 @@
-# require 'Baking' # not working
-
 module Api
   module V1
     class OrdersController < ApiController
