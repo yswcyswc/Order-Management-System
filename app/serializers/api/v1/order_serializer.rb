@@ -1,7 +1,10 @@
 module Api::V1
   class OrderSerializer
     include FastJsonapi::ObjectSerializer
-    attributes :id, :date, :grand_total
+    attributes :id, :date
+    attribute :grand_total do |object|
+      ActionController::Base.helpers.number_to_currency(object.grand_total)
+    end 
 
     attribute :number_of_items do |order|
       order.order_items.sum(:quantity)
