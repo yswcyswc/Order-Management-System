@@ -26,6 +26,13 @@ Rails.application.routes.draw do
 
   get 'error_404', to: 'home#index', as: :error_404
 
+  get 'view_cart', to: 'cart#view_cart', as: :view_cart
+  get 'add_item/:id', to: 'cart#add_item', as: :add_item
+  get 'remove_item/:id', to: 'cart#remove_item', as: :remove_item
+  get 'empty_cart', to: 'cart#empty_cart', as: :empty_cart
+  get 'checkout', to: 'cart#checkout', as: :checkout
+
+
 
   # Resource routes
   resources :sessions, only: [:new, :create, :destroy]
