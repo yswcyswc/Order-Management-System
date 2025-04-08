@@ -19,9 +19,6 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
-    if @employee.user.present? && @employee.user.role.blank?
-      @employee.user.role = 'baker' 
-    end
 
     if @employee.save
       flash[:notice] = "#{@employee.proper_name} was added to the system."
