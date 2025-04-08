@@ -14,11 +14,27 @@ Rails.application.routes.draw do
   
   # Routes for regular HTML views go here...
   # Semi-static page routes
-  
+  get 'home', to: 'home#index', as: :home
+
   # Authentication routes
-  
+  get 'login',  to: 'sessions#new', as: :login
+  post 'login',  to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy', as: :logout 
+  get 'error_404', to: 'home#error_404', as: :error_404
+  get 'contact', to: 'home#contact', as: :contact
+  get 'privacy', to: 'home#privacy', as: :privacy
+  get 'about',   to: 'home#about',   as: :about
   # Resource routes (maps HTTP verbs to controller actions automatically):
-  
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :customers, except: [:destroy]
+  resources :employees, except: [:destroy]
+  resources :order_items, only: [:edit, :update, :destroy]
+  resources :orders
+  resources :addresses
+  resources :items
+  resources :item_prices, only: [:new, :create]
+
+
   # Cart routes
   
   # Search route(s)
