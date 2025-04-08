@@ -29,6 +29,7 @@ class AddressesController < ApplicationController
   def show
     @other_addresses = @address.customer.addresses.where.not(id: @address.id).active.to_a
   end
+  
 
   def edit
   end

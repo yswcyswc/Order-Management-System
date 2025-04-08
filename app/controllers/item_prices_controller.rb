@@ -1,4 +1,4 @@
-class ItemPricesController < ApplicationController
+class ItemPricesController < ApplicationController 
   before_action :check_login
   authorize_resource
 

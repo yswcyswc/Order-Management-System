@@ -1,4 +1,58 @@
-# require "test_helper"
+require "test_helper"
+
+class OrdersControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    create_customer_users
+    create_customers
+    create_addresses
+    create_orders
+    create_employee_users
+    create_employees
+  end
+
+  test "customer should see only their own orders in index" do
+    login_user(@u_alexe)
+    get orders_path
+    assert_response :success
+    assert assigns(:orders).all? { |o| o.customer == @alexe }
+  end
+
+  test "manager should see all orders in index" do
+    login_as(:manager)
+    get orders_path
+    assert_response :success
+    assert_equal Order.all.to_a.sort, assigns(:orders).sort
+  end
+
+  test "customer can see their own order" do
+    login_user(@u_alexe)
+    get order_path(@alexe_o1)
+    assert_response :success
+  end
+
+  test "customer cannot see other customer's order" do
+    login_user(@u_alexe)
+    get order_path(@melanie_o1)
+    assert_equal "You are not authorized to take this action.", flash[:error]
+    assert_redirected_to home_path
+  end
+
+  test "manager can see any order" do
+    login_as(:manager)
+    get order_path(@melanie_o1)
+    assert_response :success
+  end
+
+  test "unauthenticated user is redirected from index" do
+    get orders_path
+    assert_redirected_to login_path
+  end
+
+  test "unauthenticated user is redirected from show" do
+    get order_path(Order.first)
+    assert_redirected_to login_path
+  end
+end
 
 # class OrdersControllerTest < ActionDispatch::IntegrationTest
 #   setup do

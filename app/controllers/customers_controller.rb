@@ -14,7 +14,6 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
     @previous_orders = @customer.orders.chronological.to_a
     @addresses = @customer.addresses
   end

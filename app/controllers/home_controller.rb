@@ -11,8 +11,8 @@ class HomeController < ApplicationController
   def privacy
   end
 
-  def error_404
-  end
+  # def error_404
+  # end
 
   # def search
   # end
