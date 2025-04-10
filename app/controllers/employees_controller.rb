@@ -9,7 +9,6 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    # set_employee sets @employee
   end
 
   def new
