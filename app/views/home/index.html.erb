@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col s12">
+    <h3 class="center-align">Welcome to Roi du Pain</h3>
+
+    <div class="card">
+      <div class="card-content">
+        <p>
+          Roi du Pain is your neighborhood bakery, bringing traditional French breads, pastries, and baked goods to Pittsburgh with love and care.
+          Whether you're looking for a crusty baguette, a flaky croissant, or a soft muffin, we have something fresh for you every day.
+        </p>
+        <p>
+          Explore our offerings, create an account, or log in to begin your order!
+        </p>
+      </div>
+    </div>
+
+    <div class="center-align">
+      <% if !logged_in? %>
+        <%= link_to "Login", login_path, class: "btn black yellow-text" %>
+      <% end %>
+    </div>
+
+    
+  </div>
+</div>
+
+<footer class="center-align">
+  <p>Webmaster: Cathy Wang</p>
+</footer>

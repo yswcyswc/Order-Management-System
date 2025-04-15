@@ -1,2 +1,2 @@
-# class BakingListController < ApplicationController
-# end
+class BakingListController < ApplicationController
+end

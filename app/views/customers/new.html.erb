@@ -1,0 +1,33 @@
+<h4>Become a Customer</h4>
+
+<% @customer.build_user if @customer.user.nil? %>
+
+<%= simple_form_for(@customer) do |f| %>
+  <div class="row">
+    <div class="form-inputs">
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :phone %>
+      <%= f.input :email %>
+    </div>
+  </div>
+
+  <%= f.simple_fields_for :user do |u| %>
+    <div class="row">
+      <div class="form-inputs">
+        <%= u.input :username %>
+        <%= u.input :password %>
+        <%= u.input :password_confirmation %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :active, value: true %>
+
+
+  <div class="row">
+    <div class="form-actions col s12">
+      <%= f.button :submit, "Register", class: "btn green" %>
+    </div>
+  </div>
+<% end %>

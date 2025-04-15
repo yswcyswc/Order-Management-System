@@ -1,0 +1,42 @@
+<h3>Your Cart</h3>
+
+<% if @items_in_cart.empty? %>
+  <p>Your cart is currently empty.</p>
+  <%= link_to "Start shopping", items_path, class: "btn green", style: "text-transform: none;"%>
+<% else %>
+  <div class="row">
+    <div class="col s12 m8">
+      <% @items_in_cart.each do |order_item| %>
+        <div class="card-panel">
+          <h6>
+            <%= link_to order_item.item.name, item_path(order_item.item), class: "blue-text text-darken-2" %>
+          </h6>
+          <p>Unit Price: <%= number_to_currency(order_item.item.current_price) %></p>
+          <p>Quantity: <%= order_item.quantity %></p>
+          <p>Subtotal: <%= number_to_currency(order_item.subtotal) %></p>
+          <%= link_to "Remove", remove_item_path(order_item.item_id), class: "blue-text right" %>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col s6">
+          <%= link_to "Continue shopping", items_path, class: "btn yellow black-text", style: "text-transform: none;" %>
+        </div>
+        <div class="col s6 right-align">
+          <%= link_to "Empty Cart", empty_cart_path, class: "btn yellow black-text", style: "text-transform: none;"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <div class="card-panel">
+        <h5>Order summary</h5>
+        <p><strong>Subtotal:</strong> <%= number_to_currency(@subtotal) %></p>
+        <p><strong>Shipping:</strong> <%= number_to_currency(@shipping_cost) %></p>
+        <p><strong>Grand Total:</strong> <%= number_to_currency(@total) %></p>
+
+        <%= link_to "Checkout", checkout_path, class: "btn yellow black-text" %>
+      </div>
+    </div>
+  </div>
+<% end %>

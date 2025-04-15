@@ -1,0 +1,39 @@
+<h4>Active Customers</h4>
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @active_customers.each do |customer| %>
+      <tr>
+        <td><%= link_to "#{customer.last_name}, #{customer.first_name}", customer_path(customer) %></td>
+        <td><%= number_to_phone(customer.phone) %></td>
+        <td><%= customer.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4>Inactive Customers</h4>
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inactive_customers.each do |customer| %>
+      <tr>
+        <td><%= customer.proper_name %></td>
+        <td><%= customer.phone %></td>
+        <td><%= customer.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,46 @@
+<h1>Account: <%= @customer.proper_name %></h1>
+<p>A Roi du Pain customer since <%= @customer.created_at.year %></p>
+
+<p><strong>Phone:</strong> <%= number_to_phone(@customer.phone) %></p>
+<p><strong>Email:</strong> <%= @customer.email %></p>
+<p>Active: <%= @customer.active ? "Yes" : "No" %></p>
+
+
+
+<% if @customer.addresses.any? %>
+    <h2>Addresses on file</h2>
+    <ul>
+        <% @customer.addresses.each do |addr| %>
+        <li>
+            <%= addr.recipient %><br>
+            <%= addr.street_1 %><br>
+            <%= "#{addr.city}, #{addr.state} #{addr.zip}" %>
+        </li>
+        <% end %>
+    </ul>
+<% else %>
+  <p>No addresses found.</p>
+<% end %>
+
+
+<% if @customer.orders.any? %>
+    <h2>Order History</h2>
+    <table class="striped">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @customer.orders.chronological.each do |order| %>
+            <tr>
+            <td><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
+            <td><%= number_to_currency(order.grand_total) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+<% else %>
+    <p>No orders placed yet.</p>
+<% end %>

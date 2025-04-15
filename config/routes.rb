@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # Routes for regular HTML views go here...
   # Semi-static page routes
   get 'home', to: 'home#index', as: :home
+  root 'home#index'
   get 'contact', to: 'home#contact', as: :contact
   get 'privacy', to: 'home#privacy', as: :privacy
   get 'about',   to: 'home#about',   as: :about
@@ -31,6 +32,9 @@ Rails.application.routes.draw do
   get 'remove_item/:id', to: 'cart#remove_item', as: :remove_item
   get 'empty_cart', to: 'cart#empty_cart', as: :empty_cart
   get 'checkout', to: 'cart#checkout', as: :checkout
+
+  get 'cart', to: 'cart#view_cart', as: :cart
+
 
 
 

@@ -1,0 +1,100 @@
+<div class="row">
+  <h4 class="center-align">Welcome to Roi du Pain</h4>
+
+  <div class="col s9">
+    <div class="card black-text">
+      <div class="card-content">
+        <p>At <strong>Roi du Pain</strong>, we specialize in artisan French breads and pastries made fresh daily in the heart of Pittsburgh. 
+        Explore our selection of <strong>breads</strong>, <strong>pastries</strong>, and <strong>muffins</strong>, or check out what's <em>popular today</em>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+
+    <h5>Breads</h5>
+    <% if @breads.present? %>
+      <table class="striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @breads.each do |item| %>
+            <tr>
+              <td><%= link_to item.name, item_path(item) %></td>
+              <td><%= item.weight %></td>
+              <td><%= number_to_currency(item.current_price || 0) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No breads available today.</p>
+    <% end %>
+
+    <h5>Muffins</h5>
+    <% if @muffins.present? %>
+      <table class="striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @muffins.each do |item| %>
+            <tr>
+              <td><%= link_to item.name, item_path(item) %></td>
+              <td><%= item.weight %></td>
+              <td><%= number_to_currency(item.current_price || 0) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No muffins available today.</p>
+    <% end %>
+
+    <h5>Pastries</h5>
+    <% if @pastries.present? %>
+      <table class="striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @pastries.each do |item| %>
+            <tr>
+              <td><%= link_to item.name, item_path(item) %></td>
+              <td><%= item.weight %></td>
+              <td><%= number_to_currency(item.current_price || 0) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No pastries available today.</p>
+    <% end %>
+
+    <h5>Popular Today</h5>
+    <% popular = Item.popular_items_on(Date.current).keys.first(5) %>
+    <% if popular.present? %>
+        <ol>
+            <% popular.each_with_index do |item, index| %>
+                <%= "#{index + 1}. #{item.name}" %><br>
+            <% end %>
+        </ol>
+    <% end %>
+
+  </div>
+</div>

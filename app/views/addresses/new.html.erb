@@ -1,0 +1,20 @@
+<h4>New Address</h4>
+
+<%= simple_form_for(@address) do |f| %>
+  <div class="row">
+    <div class="form-inputs col s12">
+      <%= f.input :recipient, label: "Recipient Name" %>
+      <%= f.input :street_1, label: "Street Address" %>
+      <%= f.input :street_2, label: "Apartment / Unit (optional)" %>
+      <%= f.input :city %>
+      <%= f.input :state, collection: us_states, prompt: "Select a state" %>
+      <%= f.input :zip, label: "ZIP Code" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-actions col s12">
+      <%= f.button :submit, "Create Address", class: "btn green" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<h3><%= @item.name %></h3>
+
+<p><%= @item.description %></p>
+<p><strong>Units Per Item:</strong> <%= @item.units_per_item %></p>
+<p><strong>Current Price:</strong> <%= number_to_currency(@item.current_price) %></p>
+
+
+<h4>Similar Items</h4>
+<ul>
+  <% @similar_items.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+</ul>
+
+<% if logged_in? && current_user.role == "customer" %>
+  <%= link_to "Add to Cart", add_item_path(@item), class: "btn green", style: "text-transform: none;"%>
+  <%= link_to "Checkout", checkout_path, class: "btn green", style: "text-transform: none;"%><br><br>
+<% end %>
+
+<%= link_to "Display All", items_path, class: "btn grey", style: "text-transform: none;"%>

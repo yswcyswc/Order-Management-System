@@ -1,18 +1,18 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :check_login
+  # before_action :check_login
   authorize_resource
 
   def index
     @breads = Item.active.where(category: :breads).alphabetical.to_a
     @muffins = Item.active.where(category: :muffins).alphabetical.to_a
     @pastries = Item.active.where(category: :pastries).alphabetical.to_a
-    @inactive_items = Item.inactive.alphabetical.to_a if current_user.role != 'customer'
+    @inactive_items = Item.inactive.alphabetical.to_a if logged_in? && current_user.role != 'customer'
   end
 
   def show
     @similar_items = Item.active.where(category: @item.category).where.not(id: @item.id).alphabetical.to_a
-    @price_history = @item.item_prices.chronological.to_a if current_user.role != 'customer'
+    @price_history = @item.item_prices.chronological.to_a if logged_in? && current_user.role != 'customer'
   end
 
   def new

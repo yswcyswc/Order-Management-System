@@ -1,0 +1,32 @@
+<h3>Order Details</h3>
+
+<p><strong>Date:</strong> <%= @order.date.strftime("%B %d, %Y") %></p>
+<p><strong>Customer:</strong> <%= @order.customer.proper_name %></p>
+<p><strong>Recipient:</strong> <%= link_to @order.address.recipient, address_path(@order.address) %></p>
+
+<h4>Items:</h4>
+<ul>
+  <% @order.order_items.each do |oi| %>
+    <li><%= "#{oi.item.name} (#{oi.quantity})" %></li>
+  <% end %>
+</ul>
+
+<p><strong>Total Cost:</strong> <%= number_to_currency(@order.grand_total) %></p>
+
+<h4>Other Orders</h4>
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @other_orders.each do |order| %>
+      <tr>
+        <td><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
+        <td><%= number_to_currency(order.grand_total) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

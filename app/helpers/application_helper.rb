@@ -22,4 +22,14 @@ module ApplicationHelper
     end
     addresses.map{|addr| ["#{addr.recipient} - #{addr.street_1} #{addr.street_2} #{addr.city}, #{addr.state} #{addr.zip}", addr.id] }
   end
+
+  def us_states
+    [
+      ['Alabama', 'AL'],
+      ['Alaska', 'AK'],
+      ['Pennsylvania', 'PA'],
+      # ... add more states as needed
+    ]
+  end
+  
 end

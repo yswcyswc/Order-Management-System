@@ -1,17 +1,59 @@
-<nav id="nav">
-  <div class="container">
-    <ul class="left hide-on-med-and-down">
+<nav class="black white-text">
+  <div class="nav-wrapper container">
+    <!-- First row: Brand name -->
+    <div class="row" style="margin-bottom: 0;">
+      <div class="col s12">
+        <h5 class="yellow-text text-lighten-2" style="margin: 0;">Roi du Pain Online Bakery</h5>
+      </div>
+    </div>
+
+    <!-- Second row: Navigation links -->
+    <div class="row" style="margin-bottom: 0;">
+      <div class="col s12">
+        <ul class="left">
+          <li><%= link_to "Home", root_path, class: "white-text" %></li>
+
+          <% if logged_in? %>
+            <% case current_user.role
+              when "customer" %>
+              <li><%= link_to "My Account", customer_path(current_user.customer), class: "white-text" %></li>
+              <li><%= link_to "Items", items_path, class: "white-text" %></li>
+              
+              <% cart_count = session[:cart]&.values&.sum || 0 %>
+              <% cart_text = cart_count > 0 ? "View Cart(#{cart_count})" : "View Cart" %>
+              <li><%= link_to cart_text, cart_path, class: "white-text" %></li>
+
+              <li><%= link_to "My Orders", orders_path, class: "white-text" %></li>
+
+            <% when "manager" %>
+              <li><%= link_to "All Customers", customers_path, class: "white-text" %></li>
+              <li><%= link_to "Employees", employees_path, class: "white-text" %></li>
+              <li><%= link_to "Items", items_path, class: "white-text" %></li>
+              <li><%= link_to "Orders", orders_path, class: "white-text" %></li>
+
+            <% when "shipper" %>
+              <li><%= link_to "Unshipped Orders", v1_orders_unshipped_path, class: "white-text" %></li>
+
+            <% when "baker" %>
+              <li><%= link_to "Baking List", v1_orders_baking_list_path, class: "white-text" %></li>
+
+            <% end %>
+          <% else %>
+            <li><%= link_to "Items", items_path, class: "white-text" %></li>
+          <% end %>
+        </ul>
 
 
-
-
-    </ul>
-    <ul class="right">
-      <% if logged_in? %>
-        <li><%= link_to 'Logout', logout_path %></li>
-      <% else %>
-        <li><%= link_to 'Login', login_path %></li>
-      <% end %>
-    </ul>
+        <ul class="right">
+          <% if logged_in? %>
+            <li><%= link_to "Logout", logout_path, class: "white-text" %></li>
+          <% else %>
+            
+            <li><%= link_to "Login", login_path, class: "white-text" %></li>
+            <li><%= link_to "Become a Customer", new_customer_path, class: "white-text" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </nav>
