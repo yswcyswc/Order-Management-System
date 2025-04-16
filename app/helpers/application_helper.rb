@@ -28,7 +28,6 @@ module ApplicationHelper
       ['Alabama', 'AL'],
       ['Alaska', 'AK'],
       ['Pennsylvania', 'PA'],
-      # ... add more states as needed
     ]
   end
   

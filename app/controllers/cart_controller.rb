@@ -13,7 +13,7 @@ class CartController < ApplicationController
     add_item_to_cart(params[:id])
     item = Item.find(params[:id])
     flash[:notice] = "#{item.name} was added to cart."
-    redirect_to items_path
+    redirect_to item_path(item)
   end
 
   def remove_item

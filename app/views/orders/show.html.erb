@@ -11,7 +11,9 @@
   <% end %>
 </ul>
 
+
 <p><strong>Total Cost:</strong> <%= number_to_currency(@order.grand_total) %></p>
+<p><strong>Total Weight:</strong> <%= number_with_precision(@order.total_weight, precision: 1) %> lbs</p>
 
 <h4>Other Orders</h4>
 <table class="striped">
@@ -25,7 +27,13 @@
     <% @other_orders.each do |order| %>
       <tr>
         <td><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
-        <td><%= number_to_currency(order.grand_total) %></td>
+        <td>
+          <% if order.grand_total.present? %>
+            <%= number_to_currency(order.grand_total) %>
+          <% else %>
+            <%= number_to_currency(0) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -19,7 +19,7 @@
               <li><%= link_to "My Account", customer_path(current_user.customer), class: "white-text" %></li>
               <li><%= link_to "Items", items_path, class: "white-text" %></li>
               
-              <% cart_count = session[:cart]&.values&.sum || 0 %>
+              <% cart_count = session[:cart]&.keys&.count || 0 %>
               <% cart_text = cart_count > 0 ? "View Cart(#{cart_count})" : "View Cart" %>
               <li><%= link_to cart_text, cart_path, class: "white-text" %></li>
 

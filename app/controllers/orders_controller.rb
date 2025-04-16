@@ -21,16 +21,24 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.date = Date.current
+    @order.customer_id ||= current_user&.customer&.id
+    @order.update(grand_total: calculate_cart_items_cost + calculate_cart_shipping)
 
+  
     if @order.save
-      save_each_item_in_cart(@order)
+      save_each_item_in_cart(@order)     
       clear_cart
       flash[:notice] = "Thank you for ordering from Roi du Pain."
+      
       redirect_to order_path(@order)
     else
       render :new
     end
+
+
   end
+  
+
 
   def edit
   end

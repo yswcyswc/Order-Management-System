@@ -2,7 +2,7 @@
 
 <% if @items_in_cart.empty? %>
   <p>Your cart is currently empty.</p>
-  <%= link_to "Start shopping", items_path, class: "btn green", style: "text-transform: none;"%>
+  <%= link_to "Start shopping", items_path, class: "btn green", style: "text-transform: none;" %>
 <% else %>
   <div class="row">
     <div class="col s12 m8">
@@ -23,20 +23,23 @@
           <%= link_to "Continue shopping", items_path, class: "btn yellow black-text", style: "text-transform: none;" %>
         </div>
         <div class="col s6 right-align">
-          <%= link_to "Empty Cart", empty_cart_path, class: "btn yellow black-text", style: "text-transform: none;"%>
+          <%= link_to "Empty cart", empty_cart_path, class: "btn yellow black-text", style: "text-transform: none;" %>
         </div>
       </div>
     </div>
+<% end %>
 
+    <!-- Order Summary always shown -->
     <div class="col s12 m4">
       <div class="card-panel">
-        <h5>Order summary</h5>
-        <p><strong>Subtotal:</strong> <%= number_to_currency(@subtotal) %></p>
-        <p><strong>Shipping:</strong> <%= number_to_currency(@shipping_cost) %></p>
-        <p><strong>Grand Total:</strong> <%= number_to_currency(@total) %></p>
+        <h5>Order Summary</h5>
+        <p><strong>Item Subtotal:</strong> <%= number_to_currency(@subtotal || 0) %></p>
+        <p><strong>Shipping:</strong> <%= number_to_currency(@shipping_cost || 0) %></p>
+        <p><strong>Grand Total:</strong> <%= number_to_currency(@total || 0) %></p>
 
-        <%= link_to "Checkout", checkout_path, class: "btn yellow black-text" %>
+        <% unless @items_in_cart.empty? %>
+          <%= link_to "Checkout", checkout_path, class: "btn yellow black-text" %>
+        <% end %>
       </div>
     </div>
   </div>
-<% end %>

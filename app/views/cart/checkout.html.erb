@@ -1,1 +1,83 @@
-<%= link_to "Add a new address", new_address_path, class: "btn green" %>
+<h3 class="center-align">Checkout</h3>
+
+
+<%= form_with model: @order, local: true do |f| %>
+  <div class="row">
+    <!-- LEFT SIDE: Form Steps -->
+    <div class="col s12 m8">
+        <h5>1. Shipping Address</h5>
+      <!-- 1. Shipping Address -->
+      <div class="field">
+        <%= f.label :address_id, "Address" %><br>
+        <%= f.select :address_id,
+                options_for_select(get_address_options_long(current_user), selected: @order&.address_id),
+                { prompt: "Select a shipping address" },
+                { class: "browser-default" } %><br><br>
+
+
+        <div class="right-align" style="margin-top: 10px;">
+          <%= link_to "Add a new address", new_address_path, class: "btn yellow black-text" %>
+        </div>
+      </div>
+
+      <!-- 2. Payment -->
+      <div class="card-panel yellow lighten-5">
+        <h5>2. Payment</h5>
+        <div class="input-field">
+            <%= f.label :credit_card_number, "Credit card number" %>
+            <%= f.text_field :credit_card_number, class: "validate" %>
+        </div>
+
+        <div class="row" style="margin-bottom: 0;">
+            <label for="order_expiration_month">Expiration month</label>
+            <%= f.select :expiration_month, (1..12).map { |m| [m, m] },
+                  {}, { id: "order_expiration_month" } %>
+            <label for="order_expiration_year">Expiration year</label>
+            <%= f.select :expiration_year, (Date.today.year..(Date.today.year + 10)).to_a,
+                  {}, { id: "order_expiration_year" } %>
+        </div>
+      </div>
+
+      <!-- 3. Review Items -->
+      <div class="card-panel white">
+        <h5>3. Review Items</h5>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @items_in_cart.each do |item| %>
+              <tr>
+                <td><%= link_to item.item.name, item_path(item.item), class: "blue-text text-darken-2" %></td>
+                <td><%= item.quantity %></td>
+                <td><%= number_to_currency(item.subtotal) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div class="right-align" style="margin-top: 10px;">
+          <%= link_to "Return to Cart", cart_path, class: "btn yellow black-text" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: Order Summary & Submit -->
+    <div class="col s12 m4">
+      <div class="card-panel white z-depth-2">
+        <h5>Order Summary</h5>
+        <p><strong>Item Subtotal:</strong> <%= number_to_currency(@subtotal) %></p>
+        <p><strong>Shipping:</strong> <%= number_to_currency(@shipping_cost) %></p>
+        <p><strong>Grand Total:</strong> <%= number_to_currency(@total) %></p>
+
+        <div class="center-align" style="margin-top: 20px;">
+          <%= f.submit "Place order", class: "btn yellow black-text" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
