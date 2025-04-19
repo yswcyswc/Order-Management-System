@@ -1,5 +1,5 @@
 <h4>Become a Customer</h4>
-
+<!-- GenAI_prompts row 10: ChatGPT reference, prompt: "What is the method for customer of builing a new user if not registered and customer.user.nil?"-->
 <% @customer.build_user if @customer.user.nil? %>
 
 <%= simple_form_for(@customer) do |f| %>
@@ -11,6 +11,7 @@
       <%= f.input :email %>
     </div>
   </div>
+<!-- GenAI_prompts row 11: ChatGPT reference, prompt: "user is nested within customer, what method in forms can I use to help with that -->
 
   <%= f.simple_fields_for :user do |u| %>
     <div class="row">

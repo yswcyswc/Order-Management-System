@@ -11,6 +11,8 @@
   </div>
 </div>
 
+<!-- GenAI_prompts row 12: ChatGPT reference, prompt: "I currently have this raw data, help me to organize it into a table format -->
+
 <div class="row">
   <div class="col s12">
 
@@ -90,6 +92,8 @@
     <% popular = Item.popular_items_on(Date.current).keys.first(5) %>
     <% if popular.present? %>
         <ol>
+          <!-- GenAI_prompts row 13: ChatGPT, prompt: "The index is not passing cucumber test, because of format issues with using <li>, can you help me fix this -->
+
             <% popular.each_with_index do |item, index| %>
                 <%= "#{index + 1}. #{item.name}" %><br>
             <% end %>

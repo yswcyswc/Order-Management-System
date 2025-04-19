@@ -1,2 +1,23 @@
 ﻿File,Tool,Method_Name,Prompt(s)_Used
 ExampleFile,ChatGPT,ExampleMethod,My prompt was… Replace this row with your real first use of Gen AI
+employees_controller.rb, ChatGPT, "user_attributes: [:username, :password, :password_confirmation, :role]","I currently have a employee connected to user, I am passing in parameters in the controller that involves both user parameters and employee parameters, with user nested inside. How can I do this"
+orders_controller.rb, ChatGPT, "@order.customer_id ||= current_user&.customer&.id", "How to set the customer_id in the order model if the customer is logged in?"
+checkout.html.erb, ChatGPT, "<div class="col s12 m8"> and <div class="field">", "How can I have shipping address on the left side and the order details on the right side, like two blocks in this uploaded image"
+checkout.html.erb, ChatGPT, "<%= f.select :address_id,options_for_select(get_address_options_long(current_user), selected: @order&.address_id),{ prompt: "Select a shipping address" },{ class: "browser-default" } %>", "I want to select an address from a list of address options given by get_address_options_login(current_user), generate code in html.erb to help me"
+checkout.html.erb, ChatGPT, "<%= f.select :expiration_month, (1..12).map { |m| [m, m] },{}, { id: "order_expiration_month" } %>", "I am creating a form with one selection being expiration month, help me to generate this, from Jan to Dec"
+checkout.html.erb, ChatGPT, "<%= f.select :expiration_year, (Date.today.year..(Date.today.year + 10)).to_a,{}, { id: "order_expiration_year" } %>", "I am creating a form with one selection being expiration year, help me to generate this, from today to today + 10 years"
+view_cart.html.erb, ChatGPT, "style: "text-transform: none;", "How can I stop auto-capitalization of my continue shopping button"
+view_cart.html.erb, ChatGPT, " <%= link_to "Empty cart", empty_cart_path, class: "btn yellow black-text", style: "text-transform: none;" %>", "How can I keep the Empty Cart button always on the right, and it doesn't automatically capitalize"
+customers/new.html.erb, ChatGPT, "@customer.build_user", "What is the method for customer of builing a new user if not registered and customer.user.nil?"
+customers/new.html.erb, ChatGPT, "<%= f.simple_fields_for :user do |u| %>", "user is nested within customer, what method in forms can I use to help with that"
+items/index.html.erb, ChatGPT, "<% if @breads.present? %><h5>Breads</h5><table class="striped"><thead><tr><th>Name</th><th>Weight</th><th>Price</th></tr></thead><tbody><% @breads.each do |item| %><tr><td><%= link_to item.name, item_path(item) %></td><td><%= item.weight %></td><td><%= number_to_currency(item.current_price || 0) %></td></tr><% end %></tbody></table><% end %>
+", "I currently have this raw data, help me to organize it into a table format"
+items/index.html.erb, ChatGPT, "<% popular.each_with_index do |item, index| %><%= "#{index + 1}. #{item.name}" %><br>", "The index is not passing cucumber test, because of format issues with using <li>, can you help me fix this"
+orders/index.html.erb, ChatGPT, "pluralize(order.order_items.sum(&:quantity)", "Make it dynamic. 1 quantity will have "item" and 2 will have "items"
+orders/show.html.erb, ChatGPT, "number_with_precision(@order.total_weight, precision: 1)", "How to format to one decimal place, is there a built-in function?"
+_nav.html.erb, ChatGPT, "<% case current_user.role when "customer" %>", "How do I use a `case` statement to display links by user role?"
+_nav.html.erb, ChatGPT, "session[:cart]&.keys&.count || 0 %>", "Do it dynamically: How do I show the number of items in a cart in the navbar using session[:cart]?"
+sessions/new.html.erb, ChatGPT, "<div class="controls"> <%= f.text_field :username %> </div> </div> <div class="control-group"> <%= f.label :password %> <div class="controls"> <%= f.password_field :password %> </div> </div>", "How do I apply Materialize classes to form inputs using form_with?"
+sessions/new.html.erb, ChatGPT, "<%= f.submit "Log In", class: "btn black yellow-text text-lighten-2" %>", "Give me some button styles in Materialize CSS. How do I style the login button using Materialize button styles?"
+
+

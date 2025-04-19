@@ -13,6 +13,7 @@
 </ul>
 
 <% if logged_in? && current_user.role == "customer" %>
+  <!-- GenAI_prompts Row 8: ChatGPT, "How can I stop auto-capitalization of my continue shopping button-->
   <%= link_to "Add to Cart", add_item_path(@item), class: "btn green", style: "text-transform: none;"%>
   <%= link_to "Checkout", checkout_path, class: "btn green", style: "text-transform: none;"%><br><br>
 <% end %>

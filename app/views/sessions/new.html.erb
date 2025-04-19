@@ -1,25 +1,26 @@
 <div class="row">
-  <div class="col s7">
+  <div class="col s12 m7">
     <div class="card yellow lighten-4">
       <div class="card-content">
+        <!-- GenAI_prompts Row 19: ChatGPT, "How do I apply Materialize classes to form inputs using form_with?" -->
         <span class="card-title">Login here</span>
-          <br />
-          <%= form_with url: sessions_path, local: true do |f| %>
-          <div class="control-group">
+        <br />
+
+        <%= form_with url: sessions_path, local: true do |f| %>
+          <div class="input-field">
             <%= f.label :username %>
-            <div class="controls">
-              <%= f.text_field :username %>
-            </div>
+            <%= f.text_field :username, class: "validate" %>
           </div>
 
-          <div class="control-group">
+          <div class="input-field">
             <%= f.label :password %>
-            <div class="controls">
-              <%= f.password_field :password %>
-            </div>
+            <%= f.password_field :password, class: "validate" %>
           </div>
-          
-          <div class="actions"><%= f.submit "Log In" %></div>
+
+          <!-- GenAI_prompts Row 20: ChatGPT, "Give me some button styles in Materialize CSS. How do I style the login button using Materialize button styles?" -->
+          <div class="center-align">
+            <%= f.submit "Log In", class: "btn black yellow-text text-lighten-2" %>
+          </div>
         <% end %>
       </div>
     </div>

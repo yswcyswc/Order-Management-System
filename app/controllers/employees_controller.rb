@@ -52,7 +52,9 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   end
 
+  
   def employee_params
+    # GenAI_prompts row 1: ChatGPT, "I currently have a employee connected to user, I am passing in parameters in the controller that involves both user parameters and employee parameters, with user nested inside. How can I do this"
     params.require(:employee).permit(
       :first_name, :last_name, :ssn, :date_hired, :date_terminated, :active,
       user_attributes: [:username, :password, :password_confirmation, :role]

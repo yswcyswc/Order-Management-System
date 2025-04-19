@@ -1,24 +1,24 @@
 <nav class="black white-text">
   <div class="nav-wrapper container">
-    <!-- First row: Brand name -->
     <div class="row" style="margin-bottom: 0;">
       <div class="col s12">
         <h5 class="yellow-text text-lighten-2" style="margin: 0;">Roi du Pain Online Bakery</h5>
       </div>
     </div>
 
-    <!-- Second row: Navigation links -->
     <div class="row" style="margin-bottom: 0;">
       <div class="col s12">
         <ul class="left">
           <li><%= link_to "Home", root_path, class: "white-text" %></li>
 
           <% if logged_in? %>
+            <!-- GenAI_prompts Row 17: ChatGPT, "How do I use a `case` statement to display links by user role?" -->
+
             <% case current_user.role
               when "customer" %>
               <li><%= link_to "My Account", customer_path(current_user.customer), class: "white-text" %></li>
               <li><%= link_to "Items", items_path, class: "white-text" %></li>
-              
+              <!-- GenAI_prompts Row 18: ChatGPT, "Do it dynamically: How do I show the number of items in a cart in the navbar using session[:cart]?" -->
               <% cart_count = session[:cart]&.keys&.count || 0 %>
               <% cart_text = cart_count > 0 ? "View Cart(#{cart_count})" : "View Cart" %>
               <li><%= link_to cart_text, cart_path, class: "white-text" %></li>
@@ -30,12 +30,6 @@
               <li><%= link_to "Employees", employees_path, class: "white-text" %></li>
               <li><%= link_to "Items", items_path, class: "white-text" %></li>
               <li><%= link_to "Orders", orders_path, class: "white-text" %></li>
-
-            <% when "shipper" %>
-              <li><%= link_to "Unshipped Orders", v1_orders_unshipped_path, class: "white-text" %></li>
-
-            <% when "baker" %>
-              <li><%= link_to "Baking List", v1_orders_baking_list_path, class: "white-text" %></li>
 
             <% end %>
           <% else %>

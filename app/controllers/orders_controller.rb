@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.date = Date.current
+    # GenAI_prompt reference row 2: ChatGpt, "How to set the customer_id in the order model if the customer is logged in?"
     @order.customer_id ||= current_user&.customer&.id
     @order.update(grand_total: calculate_cart_items_cost + calculate_cart_shipping)
 

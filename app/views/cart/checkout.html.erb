@@ -3,12 +3,13 @@
 
 <%= form_with model: @order, local: true do |f| %>
   <div class="row">
-    <!-- LEFT SIDE: Form Steps -->
+    <!-- GenAI_prompts Row 3: ChatGPT, "How can I have shipping info on the left side and the order details on the right side, like two blocks in this uploaded image -->
     <div class="col s12 m8">
         <h5>1. Shipping Address</h5>
-      <!-- 1. Shipping Address -->
+        <!-- GenAI_prompts Row 3: ChatGPT, "How can I have shipping info on the left side and the order details on the right side, like two blocks in this uploaded image -->
       <div class="field">
         <%= f.label :address_id, "Address" %><br>
+        <!-- GenAI_prompts Row 5: ChatGPT, "I want to select an address from a list of address options given by get_address_options_login(current_user), generate code in html.erb to help me -->
         <%= f.select :address_id,
                 options_for_select(get_address_options_long(current_user), selected: @order&.address_id),
                 { prompt: "Select a shipping address" },
@@ -20,7 +21,6 @@
         </div>
       </div>
 
-      <!-- 2. Payment -->
       <div class="card-panel yellow lighten-5">
         <h5>2. Payment</h5>
         <div class="input-field">
@@ -29,9 +29,11 @@
         </div>
 
         <div class="row" style="margin-bottom: 0;">
+            <!-- GenAI_prompts Row 6: ChatGPT, I am creating a form with one selection being expiration month, help me to generate this, from Jan to Dec -->
             <label for="order_expiration_month">Expiration month</label>
             <%= f.select :expiration_month, (1..12).map { |m| [m, m] },
                   {}, { id: "order_expiration_month" } %>
+            <!-- GenAI_prompts Row 7: ChatGPT, I am creating a form with one selection being expiration year, help me to generate this, from today to today + 10 years -->
             <label for="order_expiration_year">Expiration year</label>
             <%= f.select :expiration_year, (Date.today.year..(Date.today.year + 10)).to_a,
                   {}, { id: "order_expiration_year" } %>
@@ -66,7 +68,7 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDE: Order Summary & Submit -->
+    <!-- GenAI_prompts Row 3: ChatGPT, "How can I have shipping info on the left side and the order details on the right side, like two blocks in this uploaded image -->
     <div class="col s12 m4">
       <div class="card-panel white z-depth-2">
         <h5>Order Summary</h5>

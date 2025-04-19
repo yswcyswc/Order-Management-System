@@ -17,6 +17,8 @@
     <tr>
         <td><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
         <td><%= order.address.recipient %></td>
+        <!-- GenAI_prompts Row 15: ChatGPT, "Make it dynamic. 1 quantity will have "item" and 2 will have "items"-->
+
         <td><%= pluralize(order.order_items.sum(&:quantity), "item") %></td>
         <td><%= order.order_items.sum { |oi| oi.quantity * oi.item.weight } %></td>
         <td><%= number_to_currency(order.grand_total) %></td>

@@ -35,6 +35,7 @@
         <tbody>
         <% @customer.orders.chronological.each do |order| %>
             <tr>
+                <!--strftime from PATS_V1-->
             <td><%= link_to order.date.strftime("%m/%d/%y"), order_path(order) %></td>
             <td><%= number_to_currency(order.grand_total) %></td>
             </tr>

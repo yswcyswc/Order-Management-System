@@ -13,6 +13,7 @@
 
 
 <p><strong>Total Cost:</strong> <%= number_to_currency(@order.grand_total) %></p>
+<!-- GenAI_prompts row 16: ChatGPT, prompt: "How to format to one decimal place, is there a built-in function?" -->
 <p><strong>Total Weight:</strong> <%= number_with_precision(@order.total_weight, precision: 1) %> lbs</p>
 
 <h4>Other Orders</h4>
