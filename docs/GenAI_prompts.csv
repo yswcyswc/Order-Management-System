@@ -1,5 +1,4 @@
 ﻿File,Tool,Method_Name,Prompt(s)_Used
-ExampleFile,ChatGPT,ExampleMethod,My prompt was… Replace this row with your real first use of Gen AI
 employees_controller.rb, ChatGPT, "user_attributes: [:username, :password, :password_confirmation, :role]","I currently have a employee connected to user, I am passing in parameters in the controller that involves both user parameters and employee parameters, with user nested inside. How can I do this"
 orders_controller.rb, ChatGPT, "@order.customer_id ||= current_user&.customer&.id", "How to set the customer_id in the order model if the customer is logged in?"
 checkout.html.erb, ChatGPT, "<div class="col s12 m8"> and <div class="field">", "How can I have shipping address on the left side and the order details on the right side, like two blocks in this uploaded image"
