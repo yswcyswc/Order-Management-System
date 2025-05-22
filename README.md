@@ -5,7 +5,7 @@ This repository contains the implementation of a comprehensive full-stack Order 
 
 Built using Ruby on Rails (v7.0.4) for the backend and integrated with a React-based frontend, this system leverages modern software design principles, emphasizing modularity, security, and maintainability.
 
-🧩 Key Features
+Key Features include:
 - MVC Architecture: Controllers and views follow Rails conventions and support clean, test-driven workflows. MaterializeCSS is used for layout and styling consistency.
 - RESTful API: Fully-featured API layer with custom endpoints, fastjsonapi serialization, and structured JSON responses to power the React frontend.
 - Secure Authentication & Role-Based Authorization: Implemented using Devise and CanCanCan, with strict access control based on user roles (customers, employees, managers).
