@@ -130,7 +130,4 @@ features/
 
 ---
 
-## 👥 Contributors
-
-Developed by the RDP project team – Carnegie Mellon University, Spring 2025  
-For academic or internal educational use only.
+Developed as part of the RDP project for 67272 – Carnegie Mellon University, Spring 2025  
