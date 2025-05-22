@@ -1,7 +1,19 @@
 
 # Roi du Pain – Online Bakery Ordering System
 
-This repository implements the controller and view layers for **Roi du Pain**, a full-stack online bakery ordering platform developed using Ruby on Rails and React. The system supports customer interactions, order tracking, inventory management, and shopping cart functionality. 
+This repository contains the implementation of a comprehensive full-stack Order Management System for Roi du Pain, a fictional French bakery. The application is designed to streamline customer ordering, inventory tracking, shipping logistics, and administrative operations across multiple user roles.
+
+Built using Ruby on Rails (v7.0.4) for the backend and integrated with a React-based frontend, this system leverages modern software design principles, emphasizing modularity, security, and maintainability.
+
+🧩 Key Features
+- MVC Architecture: Controllers and views follow Rails conventions and support clean, test-driven workflows. MaterializeCSS is used for layout and styling consistency.
+- RESTful API: Fully-featured API layer with custom endpoints, fastjsonapi serialization, and structured JSON responses to power the React frontend.
+- Secure Authentication & Role-Based Authorization: Implemented using Devise and CanCanCan, with strict access control based on user roles (customers, employees, managers).
+- Cart Management & Order Processing: A reusable helper module (Cart) enables session-based cart functionality with automatic total calculations, validation, and shipping cost estimation.
+- Data Modeling: A normalized PostgreSQL schema with constraints, associations, and scopes that reflect real-world bakery operations (items, prices, customers, orders, employees, addresses).
+- Test-Driven Development: All features are backed by an extensive test suite using RSpec for unit/controller testing and Cucumber for full-stack behavioral testing. 100% test coverage is enforced.
+- Front-End Views: Customer-facing pages are designed with user experience in mind, following design principles covered in class. Views are responsive, clean, and dynamic.
+- Performance Optimization: ActiveRecord queries are optimized for eager loading and filtering to reduce database load and latency.
 
 ---
 
