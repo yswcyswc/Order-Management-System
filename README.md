@@ -1,7 +1,7 @@
 
 # Roi du Pain – Online Bakery Ordering System
 
-This repository implements the controller and view layers for **Roi du Pain**, a full-stack online bakery ordering platform developed using Ruby on Rails and React. The system supports customer interactions, order tracking, inventory management, and shopping cart functionality. This phase focuses on integrating a secure backend with a user-facing frontend through controller logic, dynamic views, and structured JSON APIs.
+This repository implements the controller and view layers for **Roi du Pain**, a full-stack online bakery ordering platform developed using Ruby on Rails and React. The system supports customer interactions, order tracking, inventory management, and shopping cart functionality. 
 
 ---
 
